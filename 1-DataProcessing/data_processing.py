@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 
 # importing the dataset
@@ -20,6 +19,7 @@ from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values = np.nan, strategy = 'mean')
 
 # acting only on numberical coluns from X
+# columns 1 and 2
 imputer.fit(X[:, 1:3])
 X[:, 1:3] = imputer.transform(X[:, 1:3])
 
@@ -42,7 +42,7 @@ ct = ColumnTransformer(transformers = [('encoder', OneHotEncoder(), [0])], remai
 X = np.array(ct.fit_transform(X))
 
 
-# encoding the dependent variable
+# encoding the dependent variable: change from yes/no to 0/1
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 y = le.fit_transform(y)
