@@ -29,5 +29,14 @@ y_predict = regressor.predict(X_test)
 
 np.set_printoptions(precision = 2)
 
-print(np.concatenate((y_predict.reshape(len(y_predict), 1), y_test.reshape(len(y_test), 1)), 1))
+print(np.concatenate((y_predict.reshape(len(y_predict),1), y_test.reshape(len(y_test),1)),1))
 
+#making a single prediction
+print(regressor.predict([[1, 0, 0, 160000, 130000, 300000]]))
+
+#Getting the final linear regression equation with the values of the coefficients
+
+# Profit=86.6×Dummy State 1−873×Dummy State 2+786×Dummy State 3+0.773×R&D Spend+0.0329×Administration+0.0366×Marketing Spend+42467.53
+
+print(regressor.coef_)
+print(regressor.intercept_)
